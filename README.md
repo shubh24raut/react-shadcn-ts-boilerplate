@@ -1,73 +1,97 @@
-# React + TypeScript + Vite
+# Test Admin Starter
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is a **starter admin dashboard** built with **React, TypeScript, Tailwind CSS, React Router v7, and Vite**.  
+You can clone this repo and start building your admin panel immediately.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Quick Start
 
-## React Compiler
+### 1️⃣ Clone the repository
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Open your terminal and run:
 
-## Expanding the ESLint configuration
+git clone <your-repo-url>  
+cd test-admin
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+### 2️⃣ Install dependencies
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+Run:
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+npm install  
+# or  
+yarn
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+### 3️⃣ Run the development server
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Run:
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+npm run dev  
+# or  
+yarn dev
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+Open your browser and navigate to [http://localhost:5173](http://localhost:5173).
+
+---
+
+## Project Features
+
+- Collapsible sidebar layout (Optional)
+- Routing with React Router v7 (`createBrowserRouter` + `<Outlet>`)  
+- Active tab highlighting with `<NavLink>`  
+- Tailwind CSS v4.1.17 with proper padding, margin, and responsive utilities  
+- Radix UI components (Avatar, Dialog, Tooltip, Separator, Slot)  
+- Lucide icons for modern iconography  
+- Fully typed with TypeScript  
+- ESLint configured for React + TypeScript  
+
+---
+
+## Folder Structure
+
+src/  
+├─ components/       # UI & Layout components (Sidebar, Avatar, etc.)  
+├─ pages/            # Pages (Users, Transactions, Templates, Login, etc.)  
+├─ Routes.tsx        # Router setup  
+├─ App.tsx           # Layout with Sidebar + Outlet  
+└─ index.tsx         # Entry point  
+
+index.css            # Tailwind CSS imports  
+package.json  
+tsconfig.json  
+vite.config.ts  
+
+---
+
+## Routing Notes
+
+- The `/` path redirects automatically to `/users` or anything you want.  
+- Sidebar links use `<NavLink>` → prevents full-page reload, only content inside `<Outlet>` changes.  
+- You can add new pages under `src/pages` and routes in `Routes.tsx` as children of the layout route.  
+
+---
+
+## Available Scripts
+
+| Script            | Description                                |  
+| ----------------- | ------------------------------------------ |  
+| `npm run dev`      | Start development server                   |  
+| `npm run build`    | Build project for production               |  
+| `npm run preview`  | Preview production build                   |  
+| `npm run lint`     | Run ESLint on project                       |  
+
+---
+
+## Notes
+
+- This is a **starter code base**. You can clone it and immediately start building your admin dashboard.  
+- Tailwind CSS and Radix UI are preconfigured.  
+- Uses React Router v7 with a layout route (`App.tsx`) and `<Outlet>` for page content.  
+- Sidebar is collapsible and highlights the active tab automatically.  
+- Designed for fast development — add pages, routes, and components easily.  
+
+---
+
+### License
+
+This project is **private**. Free to use internally or as a starting point for your own admin projects.
